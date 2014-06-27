@@ -1,0 +1,34 @@
+{
+    "name": "Jaspion Demo",
+    "minimum-stability": "dev",
+    "type": "library",
+    "description": "Versão de demonstração da framework jaspion",
+    "keywords": ["framework"],
+    "require": {
+        "php": ">=5.3"
+    },
+    "authors": [
+        {
+            "name": "José Gilmário da Costa Batista",
+            "email": "gilmariosoftware@gmail.com"
+        },
+        {
+            "name": "Antonio Allan",
+            "email": "antonioallansantos@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "App": "/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/gilmario-kpslow/jaspion.git"
+        }
+    ],
+    "require": {
+        "jaspion": "dev-master"
+    }
+}
