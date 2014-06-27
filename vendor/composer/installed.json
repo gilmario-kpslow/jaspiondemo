@@ -1,0 +1,47 @@
+[
+    {
+        "name": "jaspion",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/gilmario-kpslow/jaspion.git",
+            "reference": "4b5eda15b9bb607f2f7f3364c35caeef69f41b1a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/gilmario-kpslow/jaspion/zipball/4b5eda15b9bb607f2f7f3364c35caeef69f41b1a",
+            "reference": "4b5eda15b9bb607f2f7f3364c35caeef69f41b1a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "time": "2014-06-27 11:55:07",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "jaspion": "/"
+            }
+        },
+        "authors": [
+            {
+                "name": "José Gilmário da Costa Batista",
+                "email": "gilmariosoftware@gmail.com"
+            },
+            {
+                "name": "Antonio Allan",
+                "email": "antonioallansantos@gmail.com"
+            }
+        ],
+        "description": "Uma Framework leve em PHP",
+        "keywords": [
+            "framework"
+        ],
+        "support": {
+            "source": "https://github.com/gilmario-kpslow/jaspion/tree/master",
+            "issues": "https://github.com/gilmario-kpslow/jaspion/issues"
+        }
+    }
+]
