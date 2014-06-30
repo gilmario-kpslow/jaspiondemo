@@ -15,6 +15,7 @@ class IndexController extends Controller {
     }
 
     public function erro500($ex = null) {
+        $this->view->erro = $ex;
         $this->render("erro500");
     }
 

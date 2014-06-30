@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'jaspion' => array($vendorDir . '/jaspion'),
-    'App' => array('/'),
+    'jaspion\\' => array($vendorDir . '/jaspion'),
+    'App' => array($baseDir . '/')
 );

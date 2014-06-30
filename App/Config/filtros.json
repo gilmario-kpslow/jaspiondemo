@@ -1,0 +1,5 @@
+{
+    "filtro": [{
+            "usuario": "App/Filtros/UsuarioFiltro"
+        }]
+}
