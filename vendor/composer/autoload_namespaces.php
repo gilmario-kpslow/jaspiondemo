@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'jaspion\\' => array($vendorDir . '/jaspion'),
-    'App' => array($baseDir . '/')
+    'App' => array($baseDir . '/'),
 );

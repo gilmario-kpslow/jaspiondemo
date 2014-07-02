@@ -1,5 +1,10 @@
 {
     "filtro": [{
-            "usuario": "App/Filtros/UsuarioFiltro"
+            "regra": "Usuario",
+            "classe": "\\App\\Filtros\\UsuarioFiltro"
+        },
+        {
+            "regra": "",
+            "classe": "\\App\\Filtros\\PrimeiroAcessoFiltro"
         }]
 }

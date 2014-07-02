@@ -7,14 +7,14 @@ namespace App\Filtros;
  *
  * @author gilmario
  */
-class UsuarioFiltro implements \jaspion\Interfaces\Filtro\Filtro {
+class PrimeiroAcessoFiltro implements \jaspion\Interfaces\Filtro\Filtro {
 
     public function erro($controlle = null, $acao = null, $parametro = null) {
-        echo 'ERRO AO FILTRAR';
+        echo 'ERRO';
     }
 
     public function filtrar($controlle = null, $acao = null, $parametro = null) {
-        echo 'ERRO AO FILTRAR';
+        echo 'ERRO';
     }
 
 }
