@@ -10,7 +10,7 @@ namespace App\Filtros;
 class PrimeiroAcessoFiltro implements \jaspion\Interfaces\Filtro\Filtro {
 
     public function erro($controlle = null, $acao = null, $parametro = null) {
-        echo 'ERRO';
+        echo 'ERRO DE FILTRO';
     }
 
     public function filtrar($controlle = null, $acao = null, $parametro = null) {

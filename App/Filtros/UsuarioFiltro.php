@@ -10,11 +10,12 @@ namespace App\Filtros;
 class UsuarioFiltro implements \jaspion\Interfaces\Filtro\Filtro {
 
     public function erro($controlle = null, $acao = null, $parametro = null) {
-        echo 'ERRO AO FILTRAR';
+        $i = new \App\Controllers\IndexController();
+        $i->erro500();
     }
 
     public function filtrar($controlle = null, $acao = null, $parametro = null) {
-        echo 'ERRO AO FILTRAR';
+        return null;
     }
 
 }

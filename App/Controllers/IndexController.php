@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 use jaspion\Controllers\Controller;
 
+/**
+ * @secured=true
+ * 
+ *
+ */
 class IndexController extends Controller {
 
     public function indexAction() {

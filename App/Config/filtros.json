@@ -1,10 +1,16 @@
 {
     "filtro": [{
-            "regra": "Usuario",
+            "regra": [{
+                    "anotationClass": "secured",
+                    "anotationMethod": "secured"
+                }],
             "classe": "\\App\\Filtros\\UsuarioFiltro"
         },
         {
-            "regra": "",
+            "regra": [{
+                    "anotationClass": "*",
+                    "anotationMethod": ""
+                }],
             "classe": "\\App\\Filtros\\PrimeiroAcessoFiltro"
         }]
 }
