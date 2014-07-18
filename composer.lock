@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "96f6591c65873a339c3f5e7931d59142",
+    "hash": "9be6e7b143479adf733e38ac914e163d",
     "packages": [
         {
             "name": "jaspion",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gilmario-kpslow/jaspion.git",
-                "reference": "da96797bc61743a659b7f1bbc7136381833bd27e"
+                "reference": "5f4d2d1157685530604e5a69fa1a81560eb917a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gilmario-kpslow/jaspion/zipball/da96797bc61743a659b7f1bbc7136381833bd27e",
-                "reference": "da96797bc61743a659b7f1bbc7136381833bd27e",
+                "url": "https://api.github.com/repos/gilmario-kpslow/jaspion/zipball/5f4d2d1157685530604e5a69fa1a81560eb917a2",
+                "reference": "5f4d2d1157685530604e5a69fa1a81560eb917a2",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
                 "source": "https://github.com/gilmario-kpslow/jaspion/tree/master",
                 "issues": "https://github.com/gilmario-kpslow/jaspion/issues"
             },
-            "time": "2014-07-02 18:51:01"
+            "time": "2014-07-14 17:01:28"
         }
     ],
     "packages-dev": [

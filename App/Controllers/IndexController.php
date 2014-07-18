@@ -6,7 +6,7 @@ use jaspion\Controllers\Controller;
 
 /**
  * @secured=true
- * 
+ *
  *
  */
 class IndexController extends Controller {

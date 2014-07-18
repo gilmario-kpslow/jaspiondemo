@@ -1,0 +1,66 @@
+
+<div class="panel panel-default" >
+    <div class="panel-body">
+        <style type="text/css">
+
+            .card{
+
+                height: 125px;
+                background-color: #282828;
+                transition: 0.5s linear;
+                border: 3px solid wheat;
+                border-radius: 5px;
+                position: relative;
+            }
+            .card:hover{
+                transition: 0.5s linear;
+                box-shadow: 40px 40px 40px 2px rgba(0,5,0.1,0.2);
+                background-color: #3278b3;
+                border-color: #ffff33;
+                transform: scale(1.5);
+                z-index: 1;
+            }
+            .card-nome{
+                text-align: center;
+                font-size: 12px;
+                border: 1px solid #ffff33;
+                width: 100%;
+            }
+        </style>
+        <div id="tabuleiro" class="col-lg-12">
+            <div class="col-lg-2">
+                NOME
+            </div>
+            <div class="col-lg-2">
+                NOME
+            </div>
+            <div class="col-lg-2">
+                NOME
+            </div>
+            <div class="col-lg-2">
+                NOME
+            </div>
+            <div class="col-lg-2">
+                NOME
+            </div>
+            <div class="col-lg-2">
+                NOME
+            </div>
+
+        </div>
+
+        <div id="maojogador" style="width: 100%; border: 1px solid black;height: 200px;">
+            <span>Mão do Jogador</span>
+            <div class="col-lg-12">
+            </div>
+        </div>
+
+
+        <div>
+            <div id="resp"></div>
+            <input type="text" id="send"/>
+            <button type="button" onclick="send_echo();">Enviar</button>
+        </div>
+    </div>
+</div>
+
