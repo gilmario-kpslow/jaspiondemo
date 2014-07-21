@@ -1,0 +1,43 @@
+/*
+    Created on : 21/07/2014, 10:48:18
+    Author     : gilmario
+*/
+
+.card{
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 125px;
+    background-color: #282828;
+    transition: 0.5s linear;
+    border: 3px solid wheat;
+    border-radius: 5px;
+    position: relative;
+}
+.card:hover{
+
+    transition: 0.5s linear;
+    box-shadow: 40px 40px 40px 2px rgba(0,5,0.1,0.2);
+    background-color: #3278b3;
+    border-color: #ffff33;
+    transform: scale(1.5);
+    z-index: 1;
+}
+.card-nome{
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #ffff33;
+    width: 100%;
+}
+
+
+.tabuleiro{
+    border-radius: 5px;
+    box-shadow: 10px 10px 0px 0px rgba(0,0,255,0.2);
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 600px;
+}
+

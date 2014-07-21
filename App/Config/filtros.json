@@ -1,4 +1,10 @@
 {
-    "filtro": [
+    "filtro": [{
+            "regra": {
+                "anotationClass": "",
+                "anotationMethod": "identificado"
+            },
+            "classe": "\\App\\Filtros\\IdentificadoFiltro"
+        }
     ]
 }

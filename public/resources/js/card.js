@@ -11,11 +11,11 @@
             card.append("<div class='card-nome'><span >" + conf["nome"]);
             card.append("<div class='card-conteudo'>" + conf["descricao"]);
             return this.each(function() {
-                function click(e) {
-                    alert("click = " + card.attr("id"));
-                }
+//                function click(e) {
+//                    alert("click = " + card.attr("id"));
+//                }
                 card.unbind('.card');
-                card.bind('click.card', click);
+//                card.bind('click.card', click['click']);
             });
         }
 
