@@ -1,6 +1,7 @@
 var websocket;
 conectar = (function() {
-    websocket = new WebSocket("ws://10.100.0.48:8081/Servidor/echo/" + $("#player").val());
+    websocket = new WebSocket("ws://192.168.0.110:8080/Servidor/echo/" + $("#player").val());
+//    websocket = new WebSocket("ws://10.100.0.48:8081/Servidor/echo/" + $("#player").val());
     mensagemInfo("Tentando se Conectar.", "Informação");
     websocket.onmessage = (function(evt) {
         escrever(evt.data);
@@ -29,16 +30,22 @@ escrever = (function(message) {
         colocaCartaTabuleiroOp(obj, "taboponente")
     }
     if (acao == 'conversa') {
-        recebeMensagem(obj, "taboponente")
+        recebeMensagem(par, obj);
     }
 });
 
 recebeMensagem = (function(rem, mens) {
-    $("#mensagens").val($("#mensagens").val() + '/r/n' + rem + " disse: " + mens);
+    $("#mensagens").val(rem + " disse: " + mens + "\r\n" + $("#mensagens").val());
 });
 
 conversar = (function() {
     var men = $("#men_envia").val();
+    var acao = "conversa";
+    var par = $("#oponente").val();
+    var mens = acao + "|" + par + "|" + men;
+    websocket.send(mens);
+    $("#mensagens").val("você disse: " + men + "\r\n" + $("#mensagens").val());
+    $("#men_envia").val("");
 });
 
 colocaCartaTabuleiroOp = (function(obj, tab) {

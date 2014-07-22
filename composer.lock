@@ -60,6 +60,7 @@
     "stability-flags": {
         "jaspion": 20
     },
+    "prefer-stable": false,
     "platform": [
 
     ],
