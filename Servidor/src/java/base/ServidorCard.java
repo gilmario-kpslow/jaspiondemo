@@ -6,19 +6,12 @@
 package base;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.CloseReason;
-import javax.websocket.Endpoint;
 import javax.websocket.EndpointConfig;
-import javax.websocket.MessageHandler;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -45,12 +38,9 @@ public class ServidorCard {
             if (acao.equals("addCarta")) {
                 adicionaCarta(parametro, obj);
             }
-
-//            for (Session sess : session.getOpenSessions()) {
-//                if (sess.isOpen()) {
-//                    sess.getBasicRemote().sendText(msg);
-//                }
-//            }
+            if (acao.equals("conversa")) {
+                conversasao(parametro, getJogador(session), obj);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,13 +75,32 @@ public class ServidorCard {
         return nomeJoga.replaceFirst("\\-", "");
     }
 
-//
-//
-//    public void onError(Session session, Throwable thr) {
-//
-//    }
+    private String getJogador(Session s) {
+        for (Map.Entry<String, Session> entry : jogadores.entrySet()) {
+            String player = entry.getKey();
+            Session session = entry.getValue();
+            if (session.equals(s)) {
+                return player;
+            }
+        }
+        return null;
+    }
+
     private void adicionaCarta(String parametro, String obj) throws IOException {
         Session s = jogadores.get(parametro);
         s.getBasicRemote().sendText("addCarta" + "|" + parametro + "|" + obj);
+    }
+
+    private void conversasao(String parametro, String remetente, String obj) throws IOException {
+        if (parametro.equals("todos")) {
+            for (Map.Entry<String, Session> entry : jogadores.entrySet()) {
+                Session session = entry.getValue();
+                session.getBasicRemote().sendText("conversa" + "|" + "" + "|" + obj);
+            }
+        } else {
+            Session s = jogadores.get(parametro);
+            s.getBasicRemote().sendText("conversa" + "|" + remetente + "|" + obj);
+        }
+
     }
 }

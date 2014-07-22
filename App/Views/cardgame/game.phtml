@@ -9,7 +9,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-lg-9">
-                    <div id="tabuleiro" class="tabuleiro">
+                    <div id="tabuleiro" class="tabuleiro form-control">
                         <div id="taboponente" class="col-lg-12" style="height: 245px;">
 
                         </div>
@@ -18,36 +18,45 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div id="mensagens">
-
-                    </div>
-                </div>
             </div>
+        </div>
+    </div>
+</div>
 
+<div style="top: 55px; position: absolute;right: 40px;" draggable="true">
+    <div class="row">
+        <div class="col-lg-12">
+            <textarea id="mensagens" class="form-control" readonly="true" wrap="true" rows="10" cols="5">
+            </textarea>
+        </div>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" id="men_envia"/>
+        </div>
+        <div class="col-lg-3">
+            <button type="button" class="btn btn-default form-control" onclick="conversar();">Enviar</button>
         </div>
     </div>
 
 </div>
 
-<div class="modal fade" id="iniciar">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
+
+<div class="modal fade" id="iniciar" >
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content"  style="height: 400px;">
+            <div class="modal-header bg-success">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><span id="men_modal"> </span> Selecione uma opção</h4>
+                <h4 class="modal-title"><span></span> Selecione uma opção</h4>
             </div>
             <div class="modal-body">
-                <div class="row col-lg-12">
-                    <div class="col-lg-6">
-                        <!--<button class="btn btn-default  form-control" onclick="iniciar();">Iniciar</button>-->
-                        <button class="btn btn-default  form-control">Opções</button>
-                        <button class="btn btn-default  form-control" onclick="conectar();">Conectar</button>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <button class="btn btn-info  form-control">Opções</button>
+                        <button class="btn btn-success form-control" onclick="conectar();">Conectar</button>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div id="conectados">
+                    <div class="col-lg-8">
+                        <div id="conectados">
 
+                        </div>
                     </div>
                 </div>
             </div>
