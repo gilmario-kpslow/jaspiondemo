@@ -1,8 +1,3 @@
-
-$(document).ready(function() {
-
-});
-
 mensagemInfo = (function(men, titulo) {
     criaMensagem(men, "bg-info", titulo);
 });

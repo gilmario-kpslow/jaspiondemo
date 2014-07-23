@@ -6,18 +6,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/gilmario-kpslow/jaspion.git",
-            "reference": "5f4d2d1157685530604e5a69fa1a81560eb917a2"
+            "reference": "b011fad0a97e9496103e6b4c128b22910ce1c14d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/gilmario-kpslow/jaspion/zipball/5f4d2d1157685530604e5a69fa1a81560eb917a2",
-            "reference": "5f4d2d1157685530604e5a69fa1a81560eb917a2",
+            "url": "https://api.github.com/repos/gilmario-kpslow/jaspion/zipball/b011fad0a97e9496103e6b4c128b22910ce1c14d",
+            "reference": "b011fad0a97e9496103e6b4c128b22910ce1c14d",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3"
         },
-        "time": "2014-07-14 17:01:28",
+        "time": "2014-07-23 13:49:33",
         "type": "library",
         "installation-source": "source",
         "autoload": {

@@ -43,7 +43,8 @@ removeCartaTabuleiro = (function(obj) {
 colocaCartaTabuleiro = (function(obj, tab) {
     $("#" + tab).append(obj);
     obj.unbind("click");
-    websocket.send("addCarta" + "|" + $("#oponente").val() + "|" + obj.html());
+    var m = new MensagemClasse("addCarta", $("#oponente").val(), obj.html());
+    enviaMensagem(m);
     obj.bind('click', function() {
         removeCartaTabuleiro(obj);
     });

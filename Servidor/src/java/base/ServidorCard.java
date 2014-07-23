@@ -31,15 +31,12 @@ public class ServidorCard {
     @OnMessage
     public void onMessage(Session session, String msg) {
         try {
-            String[] recebido = msg.split("\\|");
-            String acao = recebido[0];
-            String parametro = recebido[1];
-            String obj = recebido[2];
-            if (acao.equals("addCarta")) {
-                adicionaCarta(parametro, obj);
+            Mensagem men = Mensagem.objectToJson(msg);
+            if (men.getAcao().equals("addCarta")) {
+                adicionaCarta(men.getParametro(), men.getMensagem());
             }
-            if (acao.equals("conversa")) {
-                conversasao(parametro, getJogador(session), obj);
+            if (men.getAcao().equals("conversa")) {
+                conversasao(men.getParametro(), getJogador(session), men.getMensagem());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,7 +50,7 @@ public class ServidorCard {
             if (sess.isOpen()) {
                 try {
                     String j = listaJogadores();
-                    sess.getBasicRemote().sendText("jogadores" + "|" + "" + "|" + j);
+                    sess.getBasicRemote().sendText(Mensagem.jsonToObject(new Mensagem("jogadores", "", j)));
                 } catch (IOException ex) {
                     Logger.getLogger(ServidorCard.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -87,19 +84,18 @@ public class ServidorCard {
     }
 
     private void adicionaCarta(String parametro, String obj) throws IOException {
-        Session s = jogadores.get(parametro);
-        s.getBasicRemote().sendText("addCarta" + "|" + parametro + "|" + obj);
+        jogadores.get(parametro).getBasicRemote().sendText(Mensagem.jsonToObject(new Mensagem("addCarta", parametro, obj)));
     }
 
     private void conversasao(String parametro, String remetente, String obj) throws IOException {
         if (parametro.equals("todos")) {
             for (Map.Entry<String, Session> entry : jogadores.entrySet()) {
                 Session session = entry.getValue();
-                session.getBasicRemote().sendText("conversa" + "|" + "" + "|" + obj);
+                session.getBasicRemote().sendText(Mensagem.jsonToObject(new Mensagem("conversa", "", obj)));
             }
         } else {
             Session s = jogadores.get(parametro);
-            s.getBasicRemote().sendText("conversa" + "|" + remetente + "|" + obj);
+            s.getBasicRemote().sendText(Mensagem.jsonToObject(new Mensagem("conversa", remetente, obj)));
         }
 
     }
