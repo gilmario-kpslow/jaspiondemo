@@ -3,8 +3,9 @@
     1 - Bloquear a tela
 3 - Quando a carta estivem em campo mostrar as opções na carta.
 4 - Atacar -
-    1 - selecionar carta
-    2 - seleciona o alvo;
+    1 - selecionar carta (OK)
+    2 - seleciona o alvo (somente no caso de carta do tipo magia);
     3 - efetua o ataque
     4 - diminuir o life
-    5 - 
+    5 - Virar a carta quando o adversario virar a dele mostrar que le virou
+    6 - Virar as cartas

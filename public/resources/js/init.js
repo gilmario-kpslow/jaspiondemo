@@ -15,19 +15,20 @@ iniciar = (function(d) {
 criarMao = (function() {
     criarMaoJogador();
 });
+
 criarMaoJogador = (function() {
     var maoJogador = $("#maojogador div");
-    maoJogador.append("<div class='card col-lg-2'>")
-            .append("<div class='card col-lg-2'>")
-            .append("<div class='card col-lg-2'>")
-            .append("<div class='card col-lg-2'>")
-            .append("<div class='card col-lg-2'>")
-            .append("<div class='card col-lg-2'>");
-
+    maoJogador
+            .append("<div class='card col-lg-2' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogado'>")
+            .append("<div class='card col-lg-2' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogado'>")
+            .append("<div class='card col-lg-2' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogado'>")
+            .append("<div class='card col-lg-2' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogado'>")
+            .append("<div class='card col-lg-2' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogado'>")
+            .append("<div class='card col-lg-2' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogado'>");
     maoJogador.children().each(function(i, obj) {
-        $(obj).card({"nome": "Carta 01", descricao: "Faz alguma coisa"});
         $(obj).click('click', function() {
-            colocaCartaTabuleiro($(obj), "tabplayer");
+            //            colocaCartaTabuleiro($(obj), "tabplayer");
+            mostrarCarta($(obj));
         });
     });
 });
@@ -40,13 +41,20 @@ removeCartaTabuleiro = (function(obj) {
     });
 });
 
-colocaCartaTabuleiro = (function(obj, tab) {
-    $("#" + tab).append(obj);
-    obj.unbind("click");
-    var m = new MensagemClasse("addCarta", $("#oponente").val(), obj.html());
+
+
+colocaCartaTabuleiro = (function(carta, tab) {
+    $("#" + tab).append(carta);
+    carta.html("");
+    carta.unbind("click");
+    var m = new MensagemClasse("addCarta", $("#oponente").val(), carta.html());
     enviaMensagem(m);
-    obj.bind('click', function() {
-        removeCartaTabuleiro(obj);
+    carta.bind('click', function() {
+        selecionaCarta(carta, "#tabplayer");
     });
 });
 
+selecionaCarta = (function(carta, local) {
+    $(local).children().removeClass("selecionada");
+    carta.addClass('selecionada');
+});

@@ -1,29 +1,15 @@
-;
-(function($) {
+escoderCarta = (function(carta) {
+    carta.html("");
+    carta.attr('posicao', 'oculta');
+    carta.removeClass('card-virada');
+});
 
-    var methods = {
-        destroi: function() {
-            return this;
-        },
-        init: function(conf) {
-            conf = $.extend({nome: "nome", numero: "1", descricao: "desc"}, conf);
-            var card = $(this);
-            card.append("<div class='card-nome'><span >" + conf["nome"]);
-            card.append("<div class='card-conteudo'>" + conf["descricao"]);
-            return this.each(function() {
-                card.unbind('.card');
-            });
-        }
-
-    };
-    $.fn.card = function(method) {
-        if (methods[method]) {
-            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
-            return methods.init.apply(this, arguments);
-        } else {
-            $.error('Method ' + method + ' does not exist on jQuery.card');
-        }
-    };
-
-})(window.jQuery || window.Zepto);
+mostrarCarta = (function(carta) {
+    if (carta.attr('posicao') == 'oculta') {
+        carta.attr('posicao', 'virada');
+        carta.addClass('card-virada');
+        carta.append("<div class='card-nome'><span >" + carta.attr('nome'));
+        carta.append('<ul class="nav nav-tabs" role="tablist"><li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <span class="caret"></span></a><ul class="dropdown-menu" role="menu"></ul><li>set</li></li></ul>');
+        carta.append("<div class='card-conteudo'>" + carta.attr('descricao'));
+    }
+});

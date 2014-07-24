@@ -4,10 +4,6 @@ criaObjeto = (function(obj) {
 });
 
 MensagemClasse = function(a, p, m) {
-//    var acao
-//    var parametro;
-//    var mensagem;
-
     this.acao = a;
     this.parametro = p;
     this.mensagem = m;
@@ -45,9 +41,11 @@ conectar = (function() {
     websocket.onmessage = (function(evt) {
         escrever(criaObjeto(evt.data));
     });
+
     websocket.onerror = (function(evt) {
         mensagemErro("Erro ao tentar se conectar.", "Erro");
     });
+
     websocket.onopen = (function() {
         mensagemInfo("Conectado.", "Informação");
     });
@@ -72,7 +70,7 @@ escrever = (function(m) {
 
 recebeMensagem = (function(rem, mens) {
     $("#mensagens").append('<div align="right">' + rem + " disse: " + mens + "</div>");
-    $("#mensagens").scrollTop();
+    $("#mensagens").scrollTop($("#mensagens").children("div").length * 20);
 });
 
 conversar = (function() {
