@@ -1,7 +1,7 @@
 escoderCarta = (function(carta) {
-    carta.html("");
     carta.attr('posicao', 'oculta');
     carta.removeClass('card-virada');
+    carta.html("");
 });
 
 mostrarCarta = (function(carta) {
@@ -17,4 +17,9 @@ mostrarCarta = (function(carta) {
             colocaCartaTabuleiro(carta, 'tabplayer');
         });
     }
+});
+
+desabilitar = (function(carta) {
+    carta.removeClass('card-virada');
+    carta.addClass('card-desativada');
 });

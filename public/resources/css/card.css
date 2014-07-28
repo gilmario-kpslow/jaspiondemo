@@ -32,6 +32,9 @@
 .card-fechada{
     background-color: #6666ff;
 }
+.card-desativada{
+    background-color: #cccccc;
+}
 
 .card-virada{
     transition: 0.5s linear;
@@ -68,3 +71,16 @@
     background-color: #888;
 }
 
+
+.maojogador {
+    background-color: #FFF;
+    border: 1px solid #000;
+    height: 180px;
+    padding: 5px;
+    position: fixed;
+    width: 94%;
+    left: 3%;
+    bottom: 2%;
+    z-index: 1;
+    box-shadow: -5px -5px 5px 0px rgba(100,100,100,0.6);
+}
