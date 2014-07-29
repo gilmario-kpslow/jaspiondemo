@@ -1,6 +1,6 @@
 {
     "conexoes": [{
-            "identificador" : "Fire",
+            "identificador": "Fire",
             "driver": "firebird",
             "host": "localhost",
             "dbname": "localhost:DBDSI.GDB",
@@ -8,11 +8,19 @@
             "password": "masterkey"
         },
         {
-            "identificador" : "Mysql", 
+            "identificador": "Mysql",
             "driver": "mysql",
             "host": "localhost",
             "dbname": "caucaia",
             "username": "root",
             "password": "aln25526"
+        },
+        {
+            "identificador": "game",
+            "driver": "mysql",
+            "host": "localhost",
+            "dbname": "game",
+            "username": "root",
+            "password": "root"
         }]
 }

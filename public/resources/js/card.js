@@ -1,33 +1,20 @@
-;
-(function($) {
+escoderCarta = (function(carta) {
+    carta.html("");
+    carta.attr('posicao', 'oculta');
+    carta.removeClass('card-virada');
+});
 
-    var methods = {
-        destroi: function() {
-            return this;
-        },
-        init: function(conf) {
-            conf = $.extend({nome: "nome", numero: "1", descricao: "desc"}, conf);
-            var card = $(this);
-            card.append("<div class='card-nome'><span >" + conf["nome"]);
-            card.append("<div class='card-conteudo'>" + conf["descricao"]);
-            return this.each(function() {
-//                function click(e) {
-//                    alert("click = " + card.attr("id"));
-//                }
-                card.unbind('.card');
-//                card.bind('click.card', click['click']);
-            });
-        }
-
+mostrarCarta = (function(carta) {
+    if (carta.attr('posicao') == 'oculta') {
+        carta.attr('posicao', 'virada');
+        carta.addClass('card-virada');
+        carta.append('<div class="card-nome"><div class="btn-group"> <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span> </button>    <ul class="dropdown-menu small" role="menu">        <li class="small"><a href="#">Action</a></li>        <li class="small"><a href="#">Another action</a></li> <li class="small"><a href="#">Something else here</a></li></ul></div><span>' + carta.attr('nome') + '</span></div>');
+        carta.append("<div class='card-conteudo'>" + carta.attr('descricao'));
     }
-    $.fn.card = function(method) {
-        if (methods[method]) {
-            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
-            return methods.init.apply(this, arguments);
-        } else {
-            $.error('Method ' + method + ' does not exist on jQuery.card');
-        }
-    };
-
-})(window.jQuery || window.Zepto);
+    if (carta.attr('situacao') == 'maojogador') {
+        carta.unbind("click");
+        carta.bind('click', function() {
+            colocaCartaTabuleiro(carta, 'tabplayer');
+        });
+    }
+});

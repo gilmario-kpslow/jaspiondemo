@@ -1,3 +1,7 @@
 nbproject/
 /Servidor/build/
+<<<<<<< HEAD
 /Servidor/nbuild.xml
+=======
+/Servidor/dist/
+>>>>>>> 93a1782cbced497de5794ecd2db4e758796df23f

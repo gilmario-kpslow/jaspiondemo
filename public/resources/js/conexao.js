@@ -1,40 +1,92 @@
+criaObjeto = (function(obj) {
+    obj = JSON.parse(obj);
+    return new MensagemClasse(obj.acao, obj.parametro, obj.mensagem);
+});
+
+MensagemClasse = function(a, p, m) {
+    this.acao = a;
+    this.parametro = p;
+    this.mensagem = m;
+
+    this.setAcao = function(ac) {
+        this.acao = ac;
+    };
+
+    this.setParametro = function(pa) {
+        this.parametro = pa;
+    };
+
+    this.setMensagem = function(men) {
+        this.mensagem = men;
+    };
+
+    this.getAcao = function() {
+        return this.acao;
+    };
+
+    this.getParametro = function() {
+        return this.parametro;
+    };
+
+    this.getMensagem = function() {
+        return this.mensagem;
+    };
+};
+
 var websocket;
 conectar = (function() {
     websocket = new WebSocket("ws://10.100.0.48:8081/Servidor/echo/" + $("#player").val());
+//    websocket = new WebSocket("ws://10.100.0.48:8081/Servidor/echo/" + $("#player").val());
+    mensagemInfo("Tentando se Conectar.", "Informação");
     websocket.onmessage = (function(evt) {
-        escrever(evt.data);
+        escrever(criaObjeto(evt.data));
+    });
+
+    websocket.onerror = (function(evt) {
+        mensagemErro("Erro ao tentar se conectar.", "Erro");
+    });
+
+    websocket.onopen = (function() {
+        mensagemInfo("Conectado.", "Informação");
     });
 });
 
-enviaMenssagem = (function(message) {
-    websocket.send(message);
+enviaMensagem = (function(message) {
+    var resp = JSON.stringify(message);
+    websocket.send(resp);
 });
 
-escrever = (function(message) {
-    var res = new String(message).split("|");
-    var acao = res[0];
-    var par = res[1];
-    var obj = res[2];
-    if (acao == 'jogadores') {
-        criaPainelConectados(obj);
+escrever = (function(m) {
+    if (m.getAcao() == 'jogadores') {
+        criaPainelConectados(m.getMensagem());
     }
-    if (acao == 'addCarta') {
-        colocaCartaTabuleiroOp(obj, "taboponente")
+    if (m.getAcao() == 'addCarta') {
+        colocaCartaTabuleiroOp(m.getMensagem(), "taboponente")
     }
+    if (m.getAcao() == 'conversa') {
+        recebeMensagem(m.getParametro(), m.getMensagem());
+    }
+});
 
-//    if (new String(message).split("|").length > 0) {
-//        criaPainelConectados(message);
-//    } else {
-//        $("#mensagens").append(message + "<br/>");
-//    }
+recebeMensagem = (function(rem, mens) {
+    $("#mensagens").append('<div align="right">' + rem + " disse: " + mens + "</div>");
+    $("#mensagens").scrollTop($("#mensagens").children("div").length * 20);
+});
+
+conversar = (function() {
+    var men = $("#men_envia").val();
+    var acao = "conversa";
+    var par = $("#oponente").val();
+    var m = new MensagemClasse(acao, par, men);
+    enviaMensagem(m);
+    $("#mensagens").append('<div align="left" > você disse: ' + men + '</div>');
+    $("#men_envia").val("");
+    $("#mensagens").scrollTop($("#mensagens").children("div").length * 20);
+
 });
 
 colocaCartaTabuleiroOp = (function(obj, tab) {
     $("#" + tab).append("<div class='card col-lg-2'>" + obj + "</div>");
-//    obj.unbind("click");
-//    obj.bind('click', function() {
-//        removeCartaTabuleiro(obj);
-//    });
 });
 
 criaPainelConectados = (function(mensagem) {
@@ -45,4 +97,10 @@ criaPainelConectados = (function(mensagem) {
             $("#conectados").append('<button class="btn btn-default  form-control" onclick="iniciar(\'' + users[i] + '\');">' + users[i] + '</button>');
         }
     }
+});
+
+testar = (function() {
+    var m = new MensagemClasse("a", "p", "m");
+    alert(m.getAcao());
+    alert(JSON.stringify(m));
 });

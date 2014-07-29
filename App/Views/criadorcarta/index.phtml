@@ -1,0 +1,32 @@
+
+<div class="panel panel-default" style="margin: 0 auto; width: 600px;">
+    <div class="panel-heading text-center">
+        <span class="glyphicon glyphicon-camera"></span> Ações
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <form class="form-horizontal" method="post" action="<?= $this->link('/criadorcarta/criarBanco') ?>">
+                <div class="form-group col-lg-12">
+                    <div class="col-lg-12">
+                        <button class="form-control btn btn-primary" type="submit">Criar Tabelas</button>
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal" method="post" action="<?= $this->link('/criadorcarta/limparBanco') ?>">
+                <div class="form-group col-lg-12">
+                    <div class="col-lg-12">
+                        <button class="form-control btn btn-primary" type="submit">Limpar Tabelas</button>
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal" method="post" action="<?= $this->link('/criadorcarta/criar') ?>">
+                <div class="form-group col-lg-12">
+                    <div class="col-lg-12">
+                        <button class="form-control btn btn-primary" type="submit">Gerenciar Cartas</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

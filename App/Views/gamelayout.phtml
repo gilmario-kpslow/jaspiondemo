@@ -2,6 +2,7 @@
 <html>
     <header>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Demo - Projeto com Jaspion</title>
         <?= $this->css('bootstrap-theme.min') ?>"
         <?= $this->css('bootstrap.min') ?>
@@ -15,7 +16,9 @@
             <ul class="nav navbar-nav">
                 <li><a href="<?= $this->link("/cardgame"); ?>"><span>Card Game</span></a></li>
             </ul>
-
+            <ul class="nav navbar-nav">
+                <li><a href="<?= $this->link("/criadorcarta"); ?>"><span>Game Creator</span></a></li>
+            </ul>
         </nav>
         <div style="margin-top: 50px;">
             <?php $this->content(); ?>
@@ -29,10 +32,33 @@
             </div>
         </div>
 
+        <div class="modal fade modal_info">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-center" id="tipo_men">
+                        <h3 class="modal-title text-center"><span id="titulo_men"> </span></h3>
+                    </div>
+                    <div class="modal-body">
+                        <div id="informacao_men"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-lg-12 form-group">
+                                <div class="col-lg-12">
+                                    <button class="btn btn-primary form-control" onclick="$('.modal_info').modal('hide');">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div id="erro"></div>
-        <?= $this->js('jquery-1.10.2.min') ?>
+        <?= $this->js('jquery-2.1.1.min') ?>
         <?= $this->js('bootstrap.min') ?>
+        <?= $this->js('functions') ?>
         <?php $this->scripts(); ?>
     </body>
 </html>

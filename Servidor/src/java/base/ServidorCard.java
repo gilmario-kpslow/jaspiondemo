@@ -6,19 +6,12 @@
 package base;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.CloseReason;
-import javax.websocket.Endpoint;
 import javax.websocket.EndpointConfig;
-import javax.websocket.MessageHandler;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -38,19 +31,13 @@ public class ServidorCard {
     @OnMessage
     public void onMessage(Session session, String msg) {
         try {
-            String[] recebido = msg.split("\\|");
-            String acao = recebido[0];
-            String parametro = recebido[1];
-            String obj = recebido[2];
-            if (acao.equals("addCarta")) {
-                adicionaCarta(parametro, obj);
+            Mensagem men = Mensagem.objectToJson(msg);
+            if (men.getAcao().equals("addCarta")) {
+                adicionaCarta(men.getParametro(), men.getMensagem());
             }
-
-//            for (Session sess : session.getOpenSessions()) {
-//                if (sess.isOpen()) {
-//                    sess.getBasicRemote().sendText(msg);
-//                }
-//            }
+            if (men.getAcao().equals("conversa")) {
+                conversasao(men.getParametro(), getJogador(session), men.getMensagem());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,7 +50,7 @@ public class ServidorCard {
             if (sess.isOpen()) {
                 try {
                     String j = listaJogadores();
-                    sess.getBasicRemote().sendText("jogadores" + "|" + "" + "|" + j);
+                    sess.getBasicRemote().sendText(Mensagem.jsonToObject(new Mensagem("jogadores", "", j)));
                 } catch (IOException ex) {
                     Logger.getLogger(ServidorCard.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -85,13 +72,31 @@ public class ServidorCard {
         return nomeJoga.replaceFirst("\\-", "");
     }
 
-//
-//
-//    public void onError(Session session, Throwable thr) {
-//
-//    }
+    private String getJogador(Session s) {
+        for (Map.Entry<String, Session> entry : jogadores.entrySet()) {
+            String player = entry.getKey();
+            Session session = entry.getValue();
+            if (session.equals(s)) {
+                return player;
+            }
+        }
+        return null;
+    }
+
     private void adicionaCarta(String parametro, String obj) throws IOException {
-        Session s = jogadores.get(parametro);
-        s.getBasicRemote().sendText("addCarta" + "|" + parametro + "|" + obj);
+        jogadores.get(parametro).getBasicRemote().sendText(Mensagem.jsonToObject(new Mensagem("addCarta", parametro, obj)));
+    }
+
+    private void conversasao(String parametro, String remetente, String obj) throws IOException {
+        if (parametro.equals("todos")) {
+            for (Map.Entry<String, Session> entry : jogadores.entrySet()) {
+                Session session = entry.getValue();
+                session.getBasicRemote().sendText(Mensagem.jsonToObject(new Mensagem("conversa", "", obj)));
+            }
+        } else {
+            Session s = jogadores.get(parametro);
+            s.getBasicRemote().sendText(Mensagem.jsonToObject(new Mensagem("conversa", remetente, obj)));
+        }
+
     }
 }
