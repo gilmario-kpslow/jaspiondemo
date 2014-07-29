@@ -2,9 +2,18 @@
 
 </div>
 <div style="margin: 0 auto;width: 900px;">
-    <?= $_SESSION['player'] ?>
     <input type="hidden" value="<?= $_SESSION['player'] ?>" id="player">
-    <input type="text" value="" id="oponente">
+    <div class="row">
+        <div class="col-lg-5">
+            <input type="text" value="<?= $_SESSION['player'] ?>" id="jogador" readonly="true" class="exibivel form-control">
+        </div>
+        <div class="col-lg-2">
+            <span class="form-control text-danger"> Contra </span>
+        </div>
+        <div class="col-lg-5">
+            <input type="text" value="" id="oponente" readonly="true" class="exibivel form-control">
+        </div>
+    </div>
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
@@ -40,20 +49,16 @@
 </div>
 
 
-<div class="modal fade" id="iniciar" >
+<div class="modal fade" id="adversarios" >
     <div class="modal-dialog modal-lg">
-        <div class="modal-content"  style="height: 400px;">
+        <div class="modal-content modal-sm">
             <div class="modal-header bg-success">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><span></span> Selecione uma opção</h4>
+                <h4 class="modal-title"><span></span> Selecione um adversario</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <button class="btn btn-info  form-control">Opções</button>
-                        <button class="btn btn-success form-control" onclick="conectar();">Conectar</button>
-                    </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div id="conectados">
 
                         </div>
@@ -64,8 +69,11 @@
     </div>
 </div>
 
-<div id="maojogador">
-    <div class="col-lg-12">
-
+<div id="maojogador" class="maojogador">
+    <div class="col-lg-12" id="controles">
+        <div class="col-lg-2">
+            <button type="button" onclick="conectar();" id="btnacao" class="btn btn-danger form-control">Conectar</button>
+        </div>
     </div>
+    <div class="col-lg-12" id="cartas"></div>
 </div>

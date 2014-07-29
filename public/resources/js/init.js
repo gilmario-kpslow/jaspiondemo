@@ -1,14 +1,12 @@
 $(document).ready(function() {
-    $("#iniciar").modal("show");
+
 });
 
-criarControles = (function() {
-    $("#iniciar").modal("hide");
+opcoes = (function() {
+    $("#adversarios").modal("show");
 });
 
 iniciar = (function(d) {
-    $("#oponente").val(d);
-    criarControles();
     criarMao();
 });
 
@@ -17,7 +15,7 @@ criarMao = (function() {
 });
 
 criarMaoJogador = (function() {
-    var maoJogador = $("#maojogador div");
+    var maoJogador = $("#cartas");
     maoJogador
             .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
             .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
@@ -26,8 +24,11 @@ criarMaoJogador = (function() {
             .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
             .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>");
     maoJogador.children().each(function(i, obj) {
-        $(obj).click('click', function() {
+        $(obj).on('mouseover', function() {
             mostrarCarta($(obj));
+        });
+        $(obj).on('mouseout', function() {
+            escoderCarta($(obj));
         });
     });
 });
@@ -42,6 +43,8 @@ removeCartaTabuleiro = (function(obj) {
 
 colocaCartaTabuleiro = (function(carta, tab) {
     $("#" + tab).append(carta);
+    carta.unbind("mouseover");
+    carta.unbind("mouseout");
     carta.unbind("click");
     carta.removeClass('card-virada');
     carta.addClass('card-virada-emcampo');
@@ -56,3 +59,14 @@ selecionaCarta = (function(carta, local) {
     $(local).children().removeClass("selecionada");
     carta.addClass('selecionada');
 });
+
+selecionaAdversario = (function(adversario) {
+    $("#oponente").val(adversario);
+    $("#adversarios").modal("hide");
+    $("#btnacao").attr("onclick", "iniciar();");
+    $("#btnacao").html("Iniciar o jogo");
+    $("#btnacao").addClass("btn-sucess");
+    $("#btnacao").removeClass("btn-info");
+});
+
+

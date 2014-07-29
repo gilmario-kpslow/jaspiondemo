@@ -48,6 +48,10 @@ conectar = (function() {
 
     websocket.onopen = (function() {
         mensagemInfo("Conectado.", "Informação");
+        $("#btnacao").attr("onclick", "opcoes();");
+        $("#btnacao").html("Selecionar Adversário");
+        $("#btnacao").addClass("btn-info");
+        $("#btnacao").removeClass("btn-danger");
     });
 });
 
@@ -94,13 +98,8 @@ criaPainelConectados = (function(mensagem) {
     $("#conectados").html("");
     for (var i = 0; i < users.length; i++) {
         if (users[i] != $("#player").val()) {
-            $("#conectados").append('<button class="btn btn-default  form-control" onclick="iniciar(\'' + users[i] + '\');">' + users[i] + '</button>');
+            $("#conectados").append('<button class="btn btn-default  form-control" onclick="selecionaAdversario(\'' + users[i] + '\');">' + users[i] + '</button>');
         }
     }
 });
 
-testar = (function() {
-    var m = new MensagemClasse("a", "p", "m");
-    alert(m.getAcao());
-    alert(JSON.stringify(m));
-});
