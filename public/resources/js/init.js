@@ -8,6 +8,7 @@ opcoes = (function() {
 
 iniciar = (function(d) {
     criarMao();
+    $("#btnacao").hide();
 });
 
 criarMao = (function() {
@@ -65,7 +66,7 @@ selecionaAdversario = (function(adversario) {
     $("#adversarios").modal("hide");
     $("#btnacao").attr("onclick", "iniciar();");
     $("#btnacao").html("Iniciar o jogo");
-    $("#btnacao").addClass("btn-sucess");
+    $("#btnacao").addClass("btn-success");
     $("#btnacao").removeClass("btn-info");
 });
 
