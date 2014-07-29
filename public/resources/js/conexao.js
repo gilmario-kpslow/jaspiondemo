@@ -35,7 +35,7 @@ MensagemClasse = function(a, p, m) {
 
 var websocket;
 conectar = (function() {
-    websocket = new WebSocket("ws://localhost:8080/Servidor/echo/" + $("#player").val());
+    websocket = new WebSocket("ws://10.100.0.48:8081/Servidor/echo/" + $("#player").val());
 //    websocket = new WebSocket("ws://10.100.0.48:8081/Servidor/echo/" + $("#player").val());
     mensagemInfo("Tentando se Conectar.", "Informação");
     websocket.onmessage = (function(evt) {

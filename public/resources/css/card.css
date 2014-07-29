@@ -62,25 +62,24 @@
 
 .tabuleiro{
     border-radius: 5px;
-    box-shadow: 10px 10px 0px 0px rgba(0,0,255,0.2);
+    box-shadow: 10px 10px 5px 0px rgba(100,100,100,0.5);
     border: 1px solid black;
     margin: 0;
     padding: 0;
-    width: 100%;
-    min-height: 600px;
+    min-height: 500px;
     background-color: #888;
 }
 
 
 .maojogador {
-    background-color: #FFF;
+    /*background-color: #FFF;*/
     border: 1px solid #000;
-    height: 180px;
-    padding: 5px;
-    position: fixed;
-    width: 94%;
-    left: 3%;
-    bottom: 2%;
-    z-index: 1;
-    box-shadow: -5px -5px 5px 0px rgba(100,100,100,0.6);
+    /*        height: 180px;
+            padding: 5px;
+            position: fixed;
+            width: 94%;
+            left: 3%;
+            bottom: 2%;
+            z-index: 1;
+            box-shadow: 5px 5px 5px 0px rgba(100,100,100,0.6);*/
 }
