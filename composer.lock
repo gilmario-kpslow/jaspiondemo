@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gilmario-kpslow/jaspion.git",
-                "reference": "b011fad0a97e9496103e6b4c128b22910ce1c14d"
+                "reference": "08006c191d9e6acf12e9327e9cdc2809bf72d851"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gilmario-kpslow/jaspion/zipball/b011fad0a97e9496103e6b4c128b22910ce1c14d",
-                "reference": "b011fad0a97e9496103e6b4c128b22910ce1c14d",
+                "url": "https://api.github.com/repos/gilmario-kpslow/jaspion/zipball/08006c191d9e6acf12e9327e9cdc2809bf72d851",
+                "reference": "08006c191d9e6acf12e9327e9cdc2809bf72d851",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
                 "source": "https://github.com/gilmario-kpslow/jaspion/tree/master",
                 "issues": "https://github.com/gilmario-kpslow/jaspion/issues"
             },
-            "time": "2014-07-23 13:49:33"
+            "time": "2014-07-26 03:12:58"
         }
     ],
     "packages-dev": [
