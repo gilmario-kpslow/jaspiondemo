@@ -70,6 +70,13 @@ escrever = (function(m) {
     if (m.getAcao() == 'conversa') {
         recebeMensagem(m.getParametro(), m.getMensagem());
     }
+    if (m.getAcao() == 'executa') {
+        executaAcao(m.getParametro(), m.getMensagem());
+    }
+});
+
+executaAcao = (function(parametro, metodo) {
+    metodo();
 });
 
 recebeMensagem = (function(rem, mens) {
@@ -103,3 +110,4 @@ criaPainelConectados = (function(mensagem) {
     }
 });
 
+//(88) 9238-3290
