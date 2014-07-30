@@ -2,6 +2,17 @@ $(document).ready(function() {
 
 });
 
+colocarCartaMao = (function(nome, desc, tipo, valor, tipomana) {
+    var c = $('<div class="card col-lg-2 card-fechada" nome="' + nome + '" descricao="' + desc + '" posicao="oculta" tipo="' + tipo + '" valor=' + valor + ' tipomana="' + tipomana + '" situacao="maojogador"></div>');
+    $("#cartas").append(c);
+    c.on('mouseover', function() {
+        mostrarCarta(c);
+    });
+    c.on('mouseout', function() {
+        escoderCarta(c);
+    });
+});
+
 opcoes = (function() {
     $("#adversarios").modal("show");
 });
@@ -11,27 +22,38 @@ iniciar = (function(d) {
     $("#btnacao").hide();
 });
 
+criaBaralho = (function() {
+    $("#baralho").html('<div class="baralho" onclick="novaCarta();">Baralho do GIL</div>');
+});
+
 criarMao = (function() {
     criarMaoJogador();
+    criaBaralho();
 });
 
 criarMaoJogador = (function() {
-    var maoJogador = $("#cartas");
-    maoJogador
-            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>");
-    maoJogador.children().each(function(i, obj) {
-        $(obj).on('mouseover', function() {
-            mostrarCarta($(obj));
-        });
-        $(obj).on('mouseout', function() {
-            escoderCarta($(obj));
-        });
-    });
+    colocarCartaMao("Carta 01", '', "terreno", "5", 'fogo');
+    colocarCartaMao("Carta 02", '', "terreno", "10", 'agua');
+    colocarCartaMao("Carta 03", '', "terreno", "15", 'incolor');
+    colocarCartaMao("Carta 04", '', "terreno", "20", 'pantano');
+    colocarCartaMao("Carta 05", '', "terreno", "25", 'floresta');
+    colocarCartaMao("Carta 06", '', "terreno", "30", 'planicie');
+//    var maoJogador = $("#cartas");
+//    maoJogador
+//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
+//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
+//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
+//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
+//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
+//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>");
+//    maoJogador.children().each(function(i, obj) {
+//        $(obj).on('mouseover', function() {
+//            mostrarCarta($(obj));
+//        });
+//        $(obj).on('mouseout', function() {
+//            escoderCarta($(obj));
+//        });
+//    });
 });
 
 removeCartaTabuleiro = (function(obj) {
@@ -69,5 +91,21 @@ selecionaAdversario = (function(adversario) {
     $("#btnacao").addClass("btn-success");
     $("#btnacao").removeClass("btn-info");
 });
+
+ativaCartas = (function() {
+//    $("#cartas")
+//    var cartas = $("#loca").children()
+//    if (carta.attr('situacao') == 'maojogador') {
+//        carta.unbind("click");
+//        carta.bind('click', function() {
+//            colocaCartaTabuleiro(carta, 'tabplayer');
+//        });
+//    }
+});
+
+novaCarta = (function() {
+    colocarCartaMao("Carta do baralho", "Nome qualquer");
+});
+
 
 

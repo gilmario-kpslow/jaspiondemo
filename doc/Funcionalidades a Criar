@@ -10,3 +10,14 @@
     5 - Virar a carta quando o adversario virar a dele mostrar que le virou
     6 - Virar as cartas
     7 - Situação = 'maojogador', 'emcampo', 'cemiterio'
+5 - Criar o tipo de Carta
+    (Terreno), (Mostro), (Magia), (Encantamento), (Artefato)
+    1 - Tipo de Terreno
+        1 - Fogo = Vermelho
+        2 - Agua = Azul claro
+        3 - Floresta - verde
+        4 - Planicies - Branco
+        5 - Pantano - Preto
+        6 - Incolor
+
+6 - Criar a Pontuação de mana
