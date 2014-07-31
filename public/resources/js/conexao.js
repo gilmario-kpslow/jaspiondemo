@@ -75,8 +75,12 @@ escrever = (function(m) {
     }
 });
 
+alerta = function(pa) {
+    alert(pa);
+};
+
 executaAcao = (function(parametro, metodo) {
-    metodo();
+    metodo(parametro);
 });
 
 recebeMensagem = (function(rem, mens) {
@@ -109,5 +113,3 @@ criaPainelConectados = (function(mensagem) {
         }
     }
 });
-
-//(88) 9238-3290

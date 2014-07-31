@@ -38,22 +38,6 @@ criarMaoJogador = (function() {
     colocarCartaMao("Carta 04", '', "terreno", "20", 'pantano');
     colocarCartaMao("Carta 05", '', "terreno", "25", 'floresta');
     colocarCartaMao("Carta 06", '', "terreno", "30", 'planicie');
-//    var maoJogador = $("#cartas");
-//    maoJogador
-//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>")
-//            .append("<div class='card col-lg-2 card-fechada' nome='carta' descricao='carat 01' posicao='oculta' situacao='maojogador'>");
-//    maoJogador.children().each(function(i, obj) {
-//        $(obj).on('mouseover', function() {
-//            mostrarCarta($(obj));
-//        });
-//        $(obj).on('mouseout', function() {
-//            escoderCarta($(obj));
-//        });
-//    });
 });
 
 removeCartaTabuleiro = (function(obj) {
