@@ -60,7 +60,7 @@ public class ServidorCard {
 
     @OnClose
     public void onClose(Session session, CloseReason closeReason) {
-        jogadores.clear();
+        jogadores.remove(getJogador(session));
     }
 
     private String listaJogadores() {
